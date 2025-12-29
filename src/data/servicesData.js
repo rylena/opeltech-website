@@ -169,7 +169,10 @@ export const getAllBrandsForDisplay = () => {
 
 // Get logo path for a brand
 export const getBrandLogo = (brandName) => {
-    return brandLogos[brandName] || null;
+    const path = brandLogos[brandName];
+    if (!path) return null;
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return import.meta.env.BASE_URL + cleanPath;
 };
 
 // Get website URL for a brand

@@ -71,7 +71,7 @@ function Hero() {
                     <div className="visual-card">
                         <div className="card-glow"></div>
                         <div className="card-content">
-                            <img src="/opellogo.svg" alt="Opel Tech Innovation" className="visual-logo" />
+                            <img src={`${import.meta.env.BASE_URL}opellogo.svg`} alt="Opel Tech Innovation" className="visual-logo" />
                             <div className="pulse-rings">
                                 <div className="pulse-ring"></div>
                                 <div className="pulse-ring"></div>

@@ -27,7 +27,7 @@ function Navbar() {
             <div className="container navbar-container">
                 {/* Logo */}
                 <div className="navbar-logo">
-                    <img src="/opeltech.svg" alt="Opel Tech" className="logo-img" />
+                    <img src={`${import.meta.env.BASE_URL}opeltech.svg`} alt="Opel Tech" className="logo-img" />
                 </div>
 
                 {/* Desktop Navigation */}
