@@ -109,7 +109,8 @@ function Services() {
                                                     {brand}
                                                 </div>
                                             }
-                                            containerClass="brand-card-tilted-inner"
+                                            containerClass={`brand-card-tilted-inner ${['UGREEN', 'Suprema'].includes(brand) ? 'logo-black' : ''
+                                                }`}
                                         />
                                     ) : (
                                         <div className="brand-card-text-fallback">

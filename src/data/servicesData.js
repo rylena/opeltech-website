@@ -35,7 +35,6 @@ export const brandLogos = {
     "BioMax": "/logos/BIOMAX Logo Vector.svg",
     "IDEMIA": "/logos/IDEMIA_logo.svg",
     "Bosch": "/logos/Bosch-Logo.svg",
-    "Belcable": "/logos/Belden.svg", // Using Belden as fallback
     "Eaton": "/logos/Eaton_Corporation_logo.svg",
     "Commscope": "/logos/CommScope_logo.svg",
     "eSSL": "/logos/download.png", // Note: might need specific logo
@@ -110,7 +109,7 @@ export const servicesData = [
     },
     {
         category: "Cables & Adapters",
-        brands: ["Belden", "Panduit", "Eaton", "Belcable", "Commscope", "UGREEN", "D-Link"]
+        brands: ["Belden", "Panduit", "Eaton", "Commscope", "UGREEN", "D-Link"]
     },
     {
         category: "Printers & Accessories",
