@@ -1,0 +1,100 @@
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #25d366;
+    color: white;
+    border-radius: 50px;
+    padding: 0;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    height: 56px;
+    width: 56px;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.whatsapp-float.expanded {
+    width: auto;
+    padding-right: 1.25rem;
+    border-radius: 50px;
+}
+
+.whatsapp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.whatsapp-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.whatsapp-float.expanded .whatsapp-label {
+    opacity: 1;
+    max-width: 150px;
+}
+
+/* Pulse animation to draw attention */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: #25d366;
+    animation: whatsapp-pulse 2s ease-out infinite;
+    z-index: -1;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        height: 50px;
+        width: 50px;
+    }
+
+    .whatsapp-icon {
+        min-width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}

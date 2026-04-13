@@ -1,0 +1,142 @@
+.brands-marquee-section {
+    padding: 3.5rem 0 3rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+    overflow: hidden;
+}
+
+.brands-marquee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.brands-marquee-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-text);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.brands-view-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e67e22;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.brands-view-all:hover {
+    color: #d35400;
+}
+
+/* Marquee Wrapper */
+.brands-marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Track Container with edge fades */
+.brands-marquee-track-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.brands-marquee-track-container::before,
+.brands-marquee-track-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.brands-marquee-track-container::before {
+    left: 0;
+    background: linear-gradient(to right, #f8f9fa, transparent);
+}
+
+.brands-marquee-track-container::after {
+    right: 0;
+    background: linear-gradient(to left, #f8f9fa, transparent);
+}
+
+/* Track animation */
+.brands-marquee-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+}
+
+.brands-marquee-track.track-left {
+    animation: scroll-left 35s linear infinite;
+}
+
+.brands-marquee-track.track-right {
+    animation: scroll-right 40s linear infinite;
+}
+
+.brands-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.brands-marquee-item {
+    padding: 0 2.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brands-marquee-logo {
+    max-height: 36px;
+    max-width: 110px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.brands-marquee-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-33.33%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .brands-marquee-item {
+        padding: 0 1.5rem;
+    }
+    
+    .brands-marquee-logo {
+        max-height: 28px;
+        max-width: 80px;
+    }
+}

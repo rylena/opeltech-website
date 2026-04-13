@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { scrollToSection } from '../utils/scrollToSection';
 import './Navbar.css';
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,35 +19,45 @@ function Navbar() {
     }, []);
 
     const navItems = [
-        { name: 'Home', href: '#home' },
-        { name: 'Services', href: '#services' },
-        { name: 'Solutions', href: '#solutions' },
-        { name: 'About', href: '#about' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Products', href: '/products' },
+        { name: 'Contact Us', href: '/#contact' },
     ];
+
+    const handleContactClick = () => {
+        setMobileMenuOpen(false);
+        scrollToSection('contact', { navigate });
+    };
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-container">
                 {/* Logo */}
-                <div className="navbar-logo">
-                    <img src={`${import.meta.env.BASE_URL}opeltech.svg`} alt="Opel Tech" className="logo-img" />
-                </div>
+                <Link to="/" className="navbar-logo" onClick={() => setMobileMenuOpen(false)}>
+                    <img src={`${import.meta.env.BASE_URL}navbar_logo.png`} alt="Opel Tech" className="logo-img" />
+                </Link>
 
                 {/* Desktop Navigation */}
                 <ul className="navbar-menu">
                     {navItems.map((item, index) => (
                         <li key={item.name} className="navbar-item" style={{ animationDelay: `${index * 0.1}s` }}>
-                            <a href={item.href} className="navbar-link">
-                                {item.name}
-                            </a>
+                            {item.href === '/#contact' ? (
+                                <button type="button" className="navbar-link navbar-link-button" onClick={handleContactClick}>
+                                    {item.name}
+                                </button>
+                            ) : (
+                                <Link to={item.href} className="navbar-link">
+                                    {item.name}
+                                </Link>
+                            )}
                         </li>
                     ))}
                 </ul>
 
                 {/* CTA Button */}
                 <div className="navbar-cta">
-                    <button className="btn btn-primary">Get Started</button>
+                    <button type="button" className="btn btn-primary" onClick={handleContactClick}>Get Started</button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -61,18 +75,26 @@ function Navbar() {
             {/* Mobile Menu */}
             <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
                 {navItems.map((item) => (
-                    <a
-                        key={item.name}
-                        href={item.href}
-                        className="mobile-menu-link"
-                        onClick={() => setMobileMenuOpen(false)}
-                    >
-                        {item.name}
-                    </a>
+                    item.href === '/#contact' ? (
+                        <button
+                            key={item.name}
+                            className="mobile-menu-link"
+                            type="button"
+                            onClick={handleContactClick}
+                        >
+                            {item.name}
+                        </button>
+                    ) : (
+                        <Link
+                            key={item.name}
+                            to={item.href}
+                            className="mobile-menu-link"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            {item.name}
+                        </Link>
+                    )
                 ))}
-                <button className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
-                    Get Started
-                </button>
             </div>
         </nav>
     );

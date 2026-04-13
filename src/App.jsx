@@ -1,45 +1,50 @@
-import Navbar from './components/Navbar'
-import StaggeredMenu from './components/StaggeredMenu'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Contact from './components/Contact'
-import './App.css'
+import { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import ServicesPage from './pages/ServicesPage';
+import ProductsPage from './pages/ProductsPage';
+import WhatsAppButton from './components/WhatsAppButton';
+import './App.css';
 
-function App() {
-    const menuItems = [
-        { label: 'Home', link: '#home' },
-        { label: 'Services', link: '#services' },
-        { label: 'Solutions', link: '#solutions' },
-        { label: 'About', link: '#about' },
-        { label: 'Contact', link: '#contact' }
-    ];
+function ScrollManager() {
+    const location = useLocation();
 
-    const socialItems = [
-        { label: 'Twitter', link: 'https://twitter.com' },
-        { label: 'GitHub', link: 'https://github.com' },
-        { label: 'LinkedIn', link: 'https://linkedin.com' }
-    ];
+    useEffect(() => {
+        const pendingSection = window.sessionStorage.getItem('pendingSection');
 
-    return (
-        <div className="app">
-            <div className="desktop-nav">
-                <Navbar />
-            </div>
-            <div className="mobile-nav">
-                <StaggeredMenu
-                    items={menuItems}
-                    displaySocials={false}
-                    accentColor="#2563eb"
-                    logoUrl="/opeltech.svg"
-                />
-            </div>
-            <Hero />
-            <Services />
-            <About />
-            <Contact />
-        </div>
-    )
+        if (pendingSection) {
+            window.sessionStorage.removeItem('pendingSection');
+            window.requestAnimationFrame(() => {
+                const target = document.getElementById(pendingSection);
+                target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            return;
+        }
+
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
+
+    return null;
 }
 
-export default App
+function App() {
+    return (
+        <Router>
+            <div className="app">
+                <ScrollManager />
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/products" element={<ProductsPage />} />
+                </Routes>
+                <Footer />
+                <WhatsAppButton />
+            </div>
+        </Router>
+    );
+}
+
+export default App;

@@ -5,6 +5,6 @@ export default defineConfig({
     plugins: [react()],
     base: '/opeltech-website/',
     server: {
-        port: 3000
+        port: 5000
     }
 })
