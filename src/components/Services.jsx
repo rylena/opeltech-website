@@ -94,8 +94,8 @@ function Services() {
                         <span>Professional Services</span>
                     </div>
                     <h2 className="services-title">
-                        Empowering Your
-                        <span className="gradient-text"> Infrastructure</span>
+                        Empowering Your{' '}
+                        <span className="gradient-text">Infrastructure</span>
                     </h2>
                     <p className="services-description">
                         We provide tailored enterprise IT solutions and professional services to drive your business forward.

@@ -131,6 +131,17 @@
 }
 
 @media (max-width: 768px) {
+    .brands-marquee-section {
+        padding: 2.5rem 0 2.25rem;
+    }
+
+    .brands-marquee-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+        margin-bottom: 1.5rem;
+    }
+
     .brands-marquee-item {
         padding: 0 1.5rem;
     }

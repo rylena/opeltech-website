@@ -15,7 +15,7 @@ function ProductsPage() {
         <div className="products-page" style={{ paddingTop: '100px' }}>
             <div className="container">
                 <div className="page-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <h2 style={{ fontSize: '3rem', fontWeight: 800, color: 'var(--color-primary)' }}>Our <span className="gradient-text">Products</span></h2>
+                    <h2 style={{ fontSize: '3rem', fontWeight: 800, color: 'var(--color-primary)' }}>Our{' '}<span className="gradient-text">Products</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
                         We partner with the world's leading technology brands to bring you enterprise-grade hardware, software, and accessories.
                     </p>

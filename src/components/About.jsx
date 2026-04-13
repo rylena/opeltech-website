@@ -32,8 +32,8 @@ function About() {
                         <span>About Us</span>
                     </div>
                     <h2 className="about-title">
-                        Welcome to
-                        <span className="gradient-text"> Opel Tech</span>
+                        Welcome to{' '}
+                        <span className="gradient-text">Opel Tech</span>
                     </h2>
                 </div>
 

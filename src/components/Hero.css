@@ -173,18 +173,18 @@
 }
 
 .btn-hero-primary {
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%);
     color: white;
     border: none;
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.22);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-hero-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.35);
+    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.28);
 }
 
 .btn-hero-secondary {
@@ -383,23 +383,52 @@
 }
 
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: calc(72px + var(--spacing-xl)) 0 var(--spacing-2xl);
+    }
+
+    .hero-container {
+        text-align: left;
+        gap: var(--spacing-2xl);
+    }
+
+    .hero-content {
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+    }
+
+    .hero-badge {
+        width: auto;
+        text-align: left;
+        max-width: 100%;
+    }
+
     .hero-title {
-        font-size: 2.75rem;
+        font-size: 2.4rem;
         letter-spacing: -1px;
     }
 
     .hero-description {
         font-size: var(--font-size-base);
+        max-width: 60ch;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .hero-cta {
         flex-direction: column;
         width: 100%;
+        align-items: stretch;
     }
 
     .btn-large {
         width: 100%;
         justify-content: center;
+        padding: 0.95rem 1.25rem;
     }
 
     .hero-stats {
@@ -409,5 +438,52 @@
 
     .hero-stat-number {
         font-size: 1.25rem;
+    }
+
+    /* Remove the large hero logo area on mobile */
+    .hero-visual {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        gap: var(--spacing-xl);
+    }
+
+    .hero-content {
+        gap: var(--spacing-md);
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-badge {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.8rem;
+        text-align: left;
+    }
+
+    .hero-stats {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        padding-top: var(--spacing-lg);
+    }
+
+    .hero-stat-divider {
+        display: none;
+    }
+
+    .hero-stat {
+        align-items: center;
+    }
+
+    .hero-stat-label {
+        font-size: 0.72rem;
     }
 }

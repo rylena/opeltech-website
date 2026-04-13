@@ -62,7 +62,7 @@
 }
 
 .history-text {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
     line-height: 1.8;
     color: var(--color-text-secondary);
 }
@@ -72,48 +72,76 @@
 }
 
 .history-stat-card {
-    background: var(--color-bg);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-3xl);
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-4xl);
     position: relative;
     overflow: hidden;
+    color: white;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .history-stat-card h3 {
-    font-size: 5rem;
-    font-weight: 800;
-    color: var(--color-primary);
+    font-size: 6rem;
+    font-weight: 900;
+    color: white;
     line-height: 1;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 4px 20px rgba(255,255,255,0.2);
+}
+
+.history-stat-card .contact-label {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.history-stat-card p[style] {
+    color: rgba(255,255,255,0.7) !important;
+    line-height: 1.8;
 }
 
 /* Core Values */
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
 }
 
 .value-card {
-    background: var(--color-bg);
+    background: white;
     padding: var(--spacing-2xl);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-normal);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .value-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(37, 99, 235, 0.08);
+    border-color: rgba(37, 99, 235, 0.3);
 }
 
 .value-number {
     font-size: 4rem;
     font-weight: 900;
-    color: rgba(37, 99, 235, 0.1);
+    color: rgba(37, 99, 235, 0.05);
     position: absolute;
     top: 1rem;
     right: 2rem;
@@ -122,16 +150,16 @@
 
 .value-card h3 {
     font-size: var(--font-size-xl);
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
+    color: var(--color-primary);
     position: relative;
     z-index: 1;
 }
 
 .value-card p {
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
     position: relative;
     z-index: 1;
 }
@@ -146,24 +174,27 @@
 
 .mission-card,
 .vision-card-alt {
-    background: white;
-    padding: var(--spacing-2xl);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-normal);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
 .mission-card:hover,
 .vision-card-alt:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary-light);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+    border-color: rgba(37, 99, 235, 0.2);
 }
 
 .mission-card .about-subtitle,
 .vision-card-alt .about-subtitle {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
 }
 
 /* Vision */
@@ -230,11 +261,57 @@
 }
 
 @media (max-width: 768px) {
+    .about {
+        padding: var(--spacing-2xl) 0;
+    }
+
     .about-title {
         font-size: var(--font-size-3xl);
     }
 
+    .about-intro {
+        font-size: var(--font-size-base);
+        margin: 0 auto var(--spacing-2xl);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .about-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+
+    .history-grid {
+        gap: var(--spacing-xl);
+    }
+
+    .history-stat-card {
+        padding: var(--spacing-xl);
+    }
+
     .history-stat-card h3 {
         font-size: 3.5rem;
+    }
+
+    .mission-card,
+    .vision-card-alt {
+        padding: var(--spacing-xl);
+    }
+
+    .value-card {
+        padding: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 420px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-number {
+        right: 1rem;
+        font-size: 3rem;
     }
 }

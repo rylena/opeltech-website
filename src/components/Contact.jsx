@@ -32,8 +32,8 @@ function Contact() {
                         <span>Get In Touch</span>
                     </div>
                     <h2 className="contact-title">
-                        Contact
-                        <span className="gradient-text"> Us</span>
+                        Contact{' '}
+                        <span className="gradient-text">Us</span>
                     </h2>
                     <p className="contact-description">
                         Whether you have a question about our products, need assistance with an order, or simply want to provide feedback, we’re here to help. Please feel free to reach out to us.
