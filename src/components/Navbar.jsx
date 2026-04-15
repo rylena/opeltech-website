@@ -31,8 +31,14 @@ function Navbar() {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <div className="container navbar-container">
+        <>
+            <div className="top-banner">
+                <div className="container top-banner-container">
+                    Opel Tech a division of Opel Trading LLC
+                </div>
+            </div>
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+                <div className="container navbar-container">
                 {/* Logo */}
                 <Link to="/" className="navbar-logo" onClick={() => setMobileMenuOpen(false)}>
                     <img src={`${import.meta.env.BASE_URL}navbar_logo.png`} alt="Opel Tech" className="logo-img" />
@@ -70,33 +76,34 @@ function Navbar() {
                     <span></span>
                     <span></span>
                 </button>
-            </div>
+                </div>
 
-            {/* Mobile Menu */}
-            <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-                {navItems.map((item) => (
-                    item.href === '/#contact' ? (
-                        <button
-                            key={item.name}
-                            className="mobile-menu-link"
-                            type="button"
-                            onClick={handleContactClick}
-                        >
-                            {item.name}
-                        </button>
-                    ) : (
-                        <Link
-                            key={item.name}
-                            to={item.href}
-                            className="mobile-menu-link"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            {item.name}
-                        </Link>
-                    )
-                ))}
-            </div>
-        </nav>
+                {/* Mobile Menu */}
+                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                    {navItems.map((item) => (
+                        item.href === '/#contact' ? (
+                            <button
+                                key={item.name}
+                                className="mobile-menu-link"
+                                type="button"
+                                onClick={handleContactClick}
+                            >
+                                {item.name}
+                            </button>
+                        ) : (
+                            <Link
+                                key={item.name}
+                                to={item.href}
+                                className="mobile-menu-link"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                {item.name}
+                            </Link>
+                        )
+                    ))}
+                </div>
+            </nav>
+        </>
     );
 }
 

@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getServices } from '../data/servicesData';
+import { scrollToSection } from '../utils/scrollToSection';
 import './ServicesPreview.css';
 
 function ServicesPreview() {
     const services = getServices().slice(0, 3);
+    const navigate = useNavigate();
+    const handleQuoteClick = () => scrollToSection('contact', { navigate });
 
     return (
         <section className="services-preview" aria-labelledby="services-preview-title">
@@ -27,9 +30,9 @@ function ServicesPreview() {
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" />
                             </svg>
                         </Link>
-                        <a href="/#contact" className="btn btn-secondary btn-large">
+                        <button type="button" className="btn btn-secondary btn-large" onClick={handleQuoteClick}>
                             Request a Quote
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -47,4 +50,3 @@ function ServicesPreview() {
 }
 
 export default ServicesPreview;
-

@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getServices } from '../data/servicesData';
+import { scrollToSection } from '../utils/scrollToSection';
 import './ServicesPage.css';
 
 // Service icons as SVG paths
@@ -21,6 +23,8 @@ const serviceIcons = [
 function ServicesPage() {
     const services = getServices();
     const pageRef = useRef(null);
+    const navigate = useNavigate();
+    const handleContactClick = () => scrollToSection('contact', { navigate });
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -96,12 +100,12 @@ function ServicesPage() {
                                     <h3>{service.title}</h3>
                                     <p className="service-short-desc">{service.description}</p>
                                     <p className="service-long-desc">{service.longDescription}</p>
-                                    <a href="/#contact" className="btn btn-primary" style={{marginTop: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem'}}>
+                                    <button type="button" onClick={handleContactClick} className="btn btn-primary" style={{marginTop: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem'}}>
                                         Consult With Us
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
                                         </svg>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         );
@@ -114,12 +118,12 @@ function ServicesPage() {
                 <div className="container services-cta-content">
                     <h2>Ready to Transform Your IT?</h2>
                     <p>Let's discuss how Opel Tech can elevate your enterprise infrastructure.</p>
-                    <a href="/#contact" className="btn btn-primary btn-large">
+                    <button type="button" onClick={handleContactClick} className="btn btn-primary btn-large">
                         Get In Touch
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
                         </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

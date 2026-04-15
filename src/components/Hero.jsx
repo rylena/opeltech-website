@@ -29,11 +29,6 @@ function Hero() {
             <div className="hero-bg"></div>
             <div className="hero-grid-overlay"></div>
 
-            {/* Floating decorative elements */}
-            <div className="hero-decoration hero-dec-1"></div>
-            <div className="hero-decoration hero-dec-2"></div>
-            <div className="hero-decoration hero-dec-3"></div>
-
             <div className="container hero-container">
                 <div className="hero-content">
                     <div className="hero-badge animate-on-scroll">
@@ -65,12 +60,12 @@ function Hero() {
                     {/* Stats row instead of basic trust badges */}
                     <div className="hero-stats animate-on-scroll">
                         <div className="hero-stat">
-                            <span className="hero-stat-number">25+</span>
+                            <span className="hero-stat-number">27</span>
                             <span className="hero-stat-label">Years of Experience</span>
                         </div>
                         <div className="hero-stat-divider"></div>
                         <div className="hero-stat">
-                            <span className="hero-stat-number">50+</span>
+                            <span className="hero-stat-number">43</span>
                             <span className="hero-stat-label">Partner Brands</span>
                         </div>
                         <div className="hero-stat-divider"></div>
@@ -82,16 +77,8 @@ function Hero() {
                 </div>
 
                 <div className="hero-visual animate-on-scroll">
-                    <div className="visual-card">
-                        <div className="card-glow"></div>
-                        <div className="card-content">
-                            <img src={`${import.meta.env.BASE_URL}opellogo.svg`} alt="Opel Tech Innovation" className="visual-logo" />
-                            <div className="pulse-rings">
-                                <div className="pulse-ring"></div>
-                                <div className="pulse-ring"></div>
-                                <div className="pulse-ring"></div>
-                            </div>
-                        </div>
+                    <div className="hero-logo-field" aria-label="Opel Tech">
+                        <img src={`${import.meta.env.BASE_URL}opellogo.svg`} alt="Opel Tech" className="hero-logo-mark" />
                     </div>
                 </div>
             </div>

@@ -1,8 +1,8 @@
 .brands-marquee-section {
     padding: 3.5rem 0 3rem;
-    background-color: #f8f9fa;
-    border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
+    background-color: #eef3f6;
+    border-top: 1px solid #dbe4ea;
+    border-bottom: 1px solid #dbe4ea;
     overflow: hidden;
 }
 
@@ -25,14 +25,14 @@
 .brands-view-all {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #e67e22;
+    color: var(--color-accent);
     text-decoration: none;
     transition: color var(--transition-fast);
     white-space: nowrap;
 }
 
 .brands-view-all:hover {
-    color: #d35400;
+    color: #1d4ed8;
 }
 
 /* Marquee Wrapper */
@@ -62,12 +62,12 @@
 
 .brands-marquee-track-container::before {
     left: 0;
-    background: linear-gradient(to right, #f8f9fa, transparent);
+    background: linear-gradient(to right, #eef3f6, transparent);
 }
 
 .brands-marquee-track-container::after {
     right: 0;
-    background: linear-gradient(to left, #f8f9fa, transparent);
+    background: linear-gradient(to left, #eef3f6, transparent);
 }
 
 /* Track animation */

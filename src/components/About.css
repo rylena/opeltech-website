@@ -126,7 +126,7 @@
     background: white;
     padding: var(--spacing-2xl);
     border-radius: var(--radius-xl);
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(16, 32, 51, 0.1);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
@@ -134,14 +134,14 @@
 
 .value-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 30px rgba(37, 99, 235, 0.08);
-    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 20px 30px rgba(7, 17, 29, 0.08);
+    border-color: rgba(65, 105, 225, 0.3);
 }
 
 .value-number {
     font-size: 4rem;
     font-weight: 900;
-    color: rgba(37, 99, 235, 0.05);
+    color: rgba(65, 105, 225, 0.12);
     position: absolute;
     top: 1rem;
     right: 2rem;
@@ -186,8 +186,8 @@
 .mission-card:hover,
 .vision-card-alt:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
-    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 40px rgba(7, 17, 29, 0.08);
+    border-color: rgba(65, 105, 225, 0.22);
 }
 
 .mission-card .about-subtitle,

@@ -12,13 +12,18 @@ function ProductsPage() {
         : getBrandsByCategory(activeCategory);
 
     return (
-        <div className="products-page" style={{ paddingTop: '100px' }}>
+        <div className="products-page">
             <div className="container">
-                <div className="page-header" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <h2 style={{ fontSize: '3rem', fontWeight: 800, color: 'var(--color-primary)' }}>Our{' '}<span className="gradient-text">Products</span></h2>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
+                <div className="products-page-header">
+                    <div className="products-page-kicker">Products and partner brands</div>
+                    <h1>Our <span className="gradient-text">Products</span></h1>
+                    <p>
                         We partner with the world's leading technology brands to bring you enterprise-grade hardware, software, and accessories.
                     </p>
+                    <div className="products-page-summary" aria-label="Products summary">
+                        <span>{allBrands.length} partner brands</span>
+                        <span>{categories.length - 1} product categories</span>
+                    </div>
                 </div>
 
                 <div className="products-filter-container">
@@ -33,12 +38,15 @@ function ProductsPage() {
                     ))}
                 </div>
 
-                <p className="brands-count">
-                    {activeCategory === 'All' 
-                        ? `Showing all ${allBrands.length} partner brands`
-                        : `Highlighting ${activeBrands.length} brands in ${activeCategory}`
-                    }
-                </p>
+                <div className="brands-count">
+                    <span>{activeCategory === 'All' ? 'All partners' : activeCategory}</span>
+                    <strong>
+                        {activeCategory === 'All' 
+                            ? `${allBrands.length} brands`
+                            : `${activeBrands.length} selected`
+                        }
+                    </strong>
+                </div>
 
                 <div className="brands-grid">
                     {allBrands.map((brand) => {

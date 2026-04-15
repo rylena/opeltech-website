@@ -18,9 +18,9 @@
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    border-radius: var(--radius-full);
+    background: rgba(65, 105, 225, 0.08);
+    border: 1px solid rgba(65, 105, 225, 0.22);
+    border-radius: var(--radius-lg);
     font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-primary);
@@ -70,7 +70,7 @@
 .service-icon-box {
     width: 64px;
     height: 64px;
-    background: rgba(37, 99, 235, 0.05);
+    background: rgba(65, 105, 225, 0.08);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
